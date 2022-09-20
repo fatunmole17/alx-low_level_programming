@@ -1,53 +1,34 @@
-/**                                                             
- *
- *  * rev_string - reverses a string                               
- *
- *   *                                                              
- *
- *    * @s: string parameter input                                   
- *
- *     *                                                              
- *
- *      * Return: Nothing                                              
- *
- *      */                                                              
+#include "main.h"
 
-                                                                
+/**
+* rev_string - reverses a string
+* @str: string to be processed
+*/
+void rev_string(char *str)
+{
+	int i, len;
+	char temp;
 
-void rev_string(char *s)                                        
+	len = _strlen(str);
+	for (i = 0; i < len / 2; i++)
+	{
+		temp = str[i];
+		str[i] = str[len - 1 - i];
+		str[len - 1 - i] = temp;
+	}
+}
 
-{                                                               
 
-	        int l, i;                                               
+/**
+* _strlen - determine the length of the string
+* @str: string to be processed
+* Return: length of string
+*/
+int _strlen(char *str)
+{
+	int i;
 
-		        char ch;                                                
-
-			                                                                
-
-			        /*find string length without null char*/                
-
-			        for (l = 0; s[l] != '\0'; ++l)                          
-
-					                ;                                               
-
-				                                                                
-
-				        /*swap the string by looping to half the string*/       
-
-				        for (i = 0; i < l / 2; ++i)                             
-
-						        {                                                       
-
-								                ch = s[i];                                      
-
-										                s[i] = s[l - 1 - i]; /*-1 because the array star
-
-														       ts from 0*/                                                     
-
-												                s[l - 1 - i] = ch;                              
-
-														        }                                                       
-
-					                                                                
-
-}          
+	for (i = 0; str[i] != '\0'; i++)
+		;
+	return (i);
+}
