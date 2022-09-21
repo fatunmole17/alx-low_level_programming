@@ -6,7 +6,7 @@
 * followed by a new line
 * @str: string to be processed
 */
-void puts2(char *str)
+void puts2(char *str);
 {
 	int i;
 
