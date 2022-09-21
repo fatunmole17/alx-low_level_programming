@@ -1,69 +1,36 @@
-101-keygen.c
-
 #include <stdio.h>
-
 #include <stdlib.h>
-
 #include <time.h>
 
-
-
 /**
- *
- *  * main - generate random password
- *
- *   *
- *
- *    * Return: returns integer on success
- *
- *     */
+* main - generates random valid passwords
+*
+* Return: Always 0
+*/
 
 int main(void)
-
 {
+	char k[200];
+	int num = 0;
+	int random = 0;
+	char *key = k;
 
-		int pass[100];
+	srand(time(NULL));
 
-			int i, count, s;
+	while (num < 2645)
+	{
+		random = rand() % 122;
 
+		if (random > 32)
+		{
+			*key = random;
+			key = key + 1;
+			num += random;
+		}
+	}
 
-
-				count = 0;
-
-
-
-					srand(time(NULL));
-
-
-
-						for (i = 0; i < 100; i++)
-
-								{
-
-											pass[i] = rand() % 78;
-
-													count += (pass[i] + '0');
-
-															putchar(pass[i] + '0');
-
-																	if ((2772 - count) - '0' < 78)
-
-																				{
-
-																								s = 2772 - count - '0';
-
-																											count += s;
-
-																														putchar(s + '0');
-
-																																	break;
-
-																																			}
-
-																		}
-
-
-
-							return (0);
-
+	*key = (2772 - num);
+	*(key + 1) = '\n';
+	printf("%s", k);
+	return (0);
 }
